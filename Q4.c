@@ -9,15 +9,15 @@ void printarValores(double *vetor, int tam,double margem) {
 		printf("%.2lf ",vetor[i]);
 	}
 	printf("} m \n");
-	printf("Dist‚ncia da margem: %.2lf m\n",margem);
+	printf("Dist√¢ncia da margem: %.2lf m\n",margem);
 }
 
 void Trapezio(double *vetor, int tam, double x) {
 	double h, somafxs;
 	int i;
 	system("cls");
-	printf("---------------- IntegraÁ„o NumÈrica - Q4 - Determinar a ·rea da seÁ„o reta de um rio com 11 pontos ----------------\n");
-	printf("\nRegra dos TrapÈzios Composta:\n");
+	printf("---------------- Integra√ß√£o Num√©rica - Q4 - Determinar a √°rea da se√ß√£o reta de um rio com 11 pontos ----------------\n");
+	printf("\nRegra dos Trap√©zios Composta:\n");
 	h = (x/(tam-1));
 	somafxs = 0;
 	for(i=1;i<tam-1;i++) {
@@ -27,14 +27,14 @@ void Trapezio(double *vetor, int tam, double x) {
 	somafxs += vetor[0];
 	somafxs += vetor[tam-1];
 	somafxs *= (h/2);
-	printf("\nA ·rea da seÁ„o reta È de: %.2lf m≤\n", somafxs);
+	printf("\nA √°rea da se√ß√£o reta √© de: %.2lf m¬≤\n", somafxs);
 }
 
 void Simpson(double *vetor, int tam, double x) {
 	double h, somafxs, somafxsp, somafxsi;
 	int i;
 	system("cls");
-	printf("---------------- IntegraÁ„o NumÈrica - Q4 - Determinar a ·rea da seÁ„o reta de um rio com 11 pontos ----------------\n");
+	printf("---------------- Integra√ß√£o Num√©rica - Q4 - Determinar a √°rea da se√ß√£o reta de um rio com 11 pontos ----------------\n");
 	printf("\nRegra de 1/3 de Simpson Repetida:\n");
 	h = (x/(tam-1));
 	somafxs = (vetor[0] + vetor[tam-1]);
@@ -49,7 +49,7 @@ void Simpson(double *vetor, int tam, double x) {
 	somafxs += (4*somafxsi);
 	somafxs += (2*somafxsp);
 	somafxs *= (h/3);
-	printf("\nA ·rea da seÁ„o reta È de: %.2lf m≤\n", somafxs);
+	printf("\nA √°rea da se√ß√£o reta √© de: %.2lf m¬≤\n", somafxs);
 }
 
 int main(void) {
@@ -61,7 +61,7 @@ int main(void) {
 	int tam = sizeof(vetorfx)/sizeof(double);
 	
 	setlocale(LC_ALL, "Portuguese");
-	printf("---------------- IntegraÁ„o NumÈrica - Q4 - Determinar a ·rea da seÁ„o reta de um rio com 11 pontos ----------------\n");
+	printf("---------------- Integra√ß√£o Num√©rica - Q4 - Determinar a √°rea da se√ß√£o reta de um rio com 11 pontos ----------------\n");
 	
 	i=1;
 	while(i) {
@@ -75,7 +75,7 @@ int main(void) {
 		}
 		else {
 			if( (c == 'S') || (c == 's') ) {
-				printf("\nDigite a posiÁ„o do valor:\n(1-11) - Valores de f(x)\n(12) - Dist‚ncia da margem\n\nDigite: ");
+				printf("\nDigite a posi√ß√£o do valor:\n(1-11) - Valores de f(x)\n(12) - Dist√¢ncia da margem\n\nDigite: ");
 				scanf("%d", &pos);
 				setbuf(stdin, NULL);
 				if(pos>=1 && pos<=11) {
@@ -92,14 +92,14 @@ int main(void) {
 			}
 		}
 		system("cls");
-		printf("---------------- IntegraÁ„o NumÈrica - Q4 - Determinar a ·rea da seÁ„o reta de um rio com 11 pontos ----------------\n");	
+		printf("---------------- Integra√ß√£o Num√©rica - Q4 - Determinar a √°rea da se√ß√£o reta de um rio com 11 pontos ----------------\n");	
 	}
 	
 	i=1;
 	while(i) {
 		system("cls");
-		printf("---------------- IntegraÁ„o NumÈrica - Q4 - Determinar a ·rea da seÁ„o reta de um rio com 11 pontos ----------------\n");	
-		printf("\nEscolha o mÈtodo de integraÁ„o numÈrica (1-2):\n 1 - TrapÈzios Composta\n 2 - 1/3 de Simpson Repetida\n\nDigite: ");
+		printf("---------------- Integra√ß√£o Num√©rica - Q4 - Determinar a √°rea da se√ß√£o reta de um rio com 11 pontos ----------------\n");	
+		printf("\nEscolha o m√©todo de integra√ß√£o num√©rica (1-2):\n 1 - Trap√©zios Composta\n 2 - 1/3 de Simpson Repetida\n\nDigite: ");
 		scanf("%c",&c);
 		setbuf(stdin, NULL);
 		if(c == '1') {
@@ -112,5 +112,7 @@ int main(void) {
 			}
 		}
 	}
+	printf("\nPressione qualquer tecla para fechar...\n");
+	getchar();
 	return 0;
 }
