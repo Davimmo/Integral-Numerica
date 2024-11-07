@@ -13,7 +13,7 @@ def trapezoidal_rule(x, y):
 # Calculando a área usando a Regra de Simpson
 def simpsons_rule(x, y):
     if len(x) % 2 == 0:
-        raise ValueError("Simpson's rule requires an odd number of intervals (even number of segments).")
+        raise ValueError("A regra de Simpson requer um número impár de pontos (Número par de segmentos).")
     
     h = x[1] - x[0]  # Espaçamento entre os pontos
     n = len(x) - 1
