@@ -1,5 +1,5 @@
-//Para testar o caso particular da questão 3 do tópico 2 você pode utilizar os valores no arquivo "Entradas de Teste"
 #include <stdio.h>
+#include <stdlib.h>
 #include <math.h>
 #include <stdbool.h>
 
@@ -7,8 +7,8 @@
 #define PRECISAO 0.0001    // Tolerância para convergência
 
 // Função para verificar o Critério das Linhas
-bool criterio_das_linhas(int n, double MATRIZ_COEF[n][n]) {
-	int i, j;
+bool criterio_das_linhas(int n, double **MATRIZ_COEF) {
+    int i, j;
     for (i = 0; i < n; i++) {
         double soma = 0.0;
         for (j = 0; j < n; j++) {
@@ -24,10 +24,15 @@ bool criterio_das_linhas(int n, double MATRIZ_COEF[n][n]) {
 }
 
 // Função para verificar o Critério de Sassenfeld
-bool criterio_sassenfeld(int n, double MATRIZ_COEF[n][n]) {
-    double beta[n];
+bool criterio_sassenfeld(int n, double **MATRIZ_COEF) {
+    double *beta = (double *)malloc(n * sizeof(double));  // Aloca dinamicamente
     int i, j;
     
+    if (beta == NULL) {  // Verifica se a alocação foi bem-sucedida
+        printf("Erro: Falha na alocacao de memoria.\n");
+        return false;
+    }
+
     for (i = 0; i < n; i++) {
         beta[i] = 0.0;
     }
@@ -36,19 +41,23 @@ bool criterio_sassenfeld(int n, double MATRIZ_COEF[n][n]) {
         double soma = 0.0;
         for (j = 0; j < n; j++) {
             if (j != i) {
-                soma += fabs(MATRIZ_COEF[i][j]) * (j < i ? beta[j] : 1); //verifica se o elemento está antes ou depois do elemento da diagonal principal
+                soma += fabs(MATRIZ_COEF[i][j]) * (j < i ? beta[j] : 1);
             }
         }
         beta[i] = soma / fabs(MATRIZ_COEF[i][i]);
         if (beta[i] >= 1) {
-            return false;  // Não atende ao critério de Sassenfeld
+            free(beta);  // Libera memória antes de sair
+            return false;
         }
     }
-    return true;  // Atende ao critério de Sassenfeld
+    
+    free(beta);  // Libera memória após uso
+    return true;
 }
 
+ 
 // Função para resolver o sistema usando o Método de Gauss-Seidel
-void gauss_seidel(int n, double MATRIZ_COEF[n][n], double VETOR_TERMOS_INDEP[n], double VETOR_VARIAVEIS[n]){
+void gauss_seidel(int n, double **MATRIZ_COEF, double *VETOR_TERMOS_INDEP, double *VETOR_VARIAVEIS) {
     int iteracao = 0, i, j;
     double erro = 0;
     
@@ -66,13 +75,14 @@ void gauss_seidel(int n, double MATRIZ_COEF[n][n], double VETOR_TERMOS_INDEP[n],
             }   
             
             // Calcula o novo valor das incógnitas
-			double VETOR_VARIAVEIS_novo;         
-			
+            double VETOR_VARIAVEIS_novo;         
+            
             if (MATRIZ_COEF[i][i] != 0) {
-			    VETOR_VARIAVEIS_novo = (VETOR_TERMOS_INDEP[i] - soma) / MATRIZ_COEF[i][i];
-			} else {
-			    printf("Erro: Divisão por zero na linha %d.\n", i);
-			}
+                VETOR_VARIAVEIS_novo = (VETOR_TERMOS_INDEP[i] - soma) / MATRIZ_COEF[i][i];
+            } else {
+                printf("Erro: Divisão por zero na linha %d.\n", i);
+                return;
+            }
 
             // Calcula o erro como a diferença máxima entre os valores antigos e novos
             erro = fmax(erro, fabs(VETOR_VARIAVEIS_novo - VETOR_VARIAVEIS[i]));
@@ -95,13 +105,19 @@ void gauss_seidel(int n, double MATRIZ_COEF[n][n], double VETOR_TERMOS_INDEP[n],
 }
 
 int main() {
-    int n, i = 0, j = 0;
+    int n, i, j;
 
     // Define o número de malhas no sistema, uma incógnita para cada corrente de malha
     printf("Digite o numero de malhas: ");
     scanf("%d", &n);
 
-    double MATRIZ_COEF[n][n], VETOR_TERMOS_INDEP[n], VETOR_VARIAVEIS[n];
+    // Aloca a matriz de coeficientes e os vetores
+    double **MATRIZ_COEF = (double **)malloc(n * sizeof(double *));
+    for (i = 0; i < n; i++) {
+        MATRIZ_COEF[i] = (double *)malloc(n * sizeof(double));
+    }
+    double *VETOR_TERMOS_INDEP = (double *)malloc(n * sizeof(double));
+    double *VETOR_VARIAVEIS = (double *)malloc(n * sizeof(double));
 
     // Recebe a matriz de coeficientes
     printf("Digite a matriz dos coeficientes:\n");
@@ -137,6 +153,13 @@ int main() {
     // Chama a função de resolução pelo método de Gauss-Seidel
     gauss_seidel(n, MATRIZ_COEF, VETOR_TERMOS_INDEP, VETOR_VARIAVEIS);
 
+    // Libera a memória alocada
+    for (i = 0; i < n; i++) {
+        free(MATRIZ_COEF[i]);
+    }
+    free(MATRIZ_COEF);
+    free(VETOR_TERMOS_INDEP);
+    free(VETOR_VARIAVEIS);
+
     return 0;
 }
-
