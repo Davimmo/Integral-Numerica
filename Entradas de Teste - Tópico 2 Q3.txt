@@ -31,7 +31,7 @@
 3
 -12
 
-#Vetor solução:
+#Vetor de termos independentes:
 12
 16
 14
