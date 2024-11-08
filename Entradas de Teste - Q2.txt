@@ -1,5 +1,7 @@
+#Número de malhas
 5
 
+#Coeficientes da matriz
 9.5
 -2.5
 0
@@ -26,6 +28,7 @@
 3
 -12
 
+#Vetor solução
 12
 16
 14
