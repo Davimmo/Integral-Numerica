@@ -1,7 +1,7 @@
-Projeto final da disciplina de "Calculo Númerico" ministrada pelo professor Jorge Luis Cavalcanti Ramos criado para aplicação de métodos númericos de resolução de problemas.
-Alunos: Davi B.C, Ericlés B Sá, Gabriel Cavalcanti.
-Instituição de Ensino: Univasf Campus Juazeiro
-Data de entrega: 08/11/2024
+- Projeto final da disciplina de "Calculo Númerico" ministrada pelo professor Jorge Luis Cavalcanti Ramos criado para aplicação de métodos númericos de resolução de problemas.- 
+- Alunos: Davi B.C, Ericlés B Sá, Gabriel Cavalcanti.
+- Instituição de Ensino: Univasf Campus Juazeiro
+- Data de entrega: 08/11/2024
 
 Foram quatro questões solucionadas (que fazem parte do arquivo "Questões projeto final") uma de cada tópico da seguinte maneira:
 1. Questão 1 do tópico 1 - resolvida por Davi
