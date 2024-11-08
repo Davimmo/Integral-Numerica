@@ -58,7 +58,7 @@ if resultados is not None:
 else:
     print("O sistema não possui uma solução única ou é inviável.")
 
-#Aqui um exemplo de que resolver méta de produção serve para qualquer matriz quadrada
+#Aqui um exemplo de que resolver méta de produção serve para qualquer matriz quadrada (bastando descomentar):
 # cincoXcinco=[
 #     [2,1,-1,3,2],
 #     [4,-2,5,1,3],
