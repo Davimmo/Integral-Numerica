@@ -4,10 +4,10 @@ Instituição de Ensino: Univasf Campus Juazeiro
 Data de entrega: 08/11/2024
 
 Foram quatro questões solucionadas (que fazem parte do arquivo "Questões projeto final") uma de cada tópico da seguinte maneira:
-Questão 1 do tópico 1 - resolvida por Davi
-Questão 3 do tópico 2 - resolvida por Ericlés
-Questão 2 do tópico 3 - resolvida por Gabriel
-Questão 1 do tópico 4 - resolvida por Gabriel
+1. Questão 1 do tópico 1 - resolvida por Davi
+2. Questão 3 do tópico 2 - resolvida por Ericlés
+3. Questão 2 do tópico 3 - resolvida por Gabriel
+4. Questão 1 do tópico 4 - resolvida por Gabriel
 
 Os nome dos arquivos de código possuem o tópico da questão, o número da questão em si e o autor da solução, pequenas alterações como este arquivo README e alterações no código e no arquivo usado para teste podem ser verificadas na aba "blame" do github para cada arquivo.
 
