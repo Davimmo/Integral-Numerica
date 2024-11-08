@@ -1,3 +1,4 @@
+//Para testar o caso particular da questão 3 do tópico 2 você pode utilizar os valores no arquivo "Entradas de Teste"
 #include <stdio.h>
 #include <math.h>
 #include <stdbool.h>
