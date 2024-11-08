@@ -9,6 +9,6 @@ Questão 3 do tópico 2 - resolvida por Ericlés
 Questão 2 do tópico 3 - resolvida por Gabriel
 Questão 1 do tópico 4 - resolvida por Gabriel
 
-Os arquivos possuem o tópico da questão, o número da questão em si e o autor da solução, pequenas alterações como este arquivo README e alterações no código e no arquivo usado para teste podem ser verificadas na aba "blame" do github para cada arquivo.
+Os nome dos arquivos de código possuem o tópico da questão, o número da questão em si e o autor da solução, pequenas alterações como este arquivo README e alterações no código e no arquivo usado para teste podem ser verificadas na aba "blame" do github para cada arquivo.
 
 Informações para compilação (no caso dos programas em C) e execução estão presentes nos comentários dos códigos de cada questão.
